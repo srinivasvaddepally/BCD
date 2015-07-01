@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CompanyInsight_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="company_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="created_utc_datetime" Type="datetime" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="modified_utc_datetime" Type="datetime" Nullable="false" />
+          <Property Name="modified_by" Type="int" Nullable="false" />
+          <Property Name="delete_ind" Type="bit" Nullable="false" />
+          <Property Name="active_ind" Type="bit" Nullable="false" />
+          <Property Name="CIK" Type="varchar" MaxLength="20" />
+          <Property Name="SIC" Type="int" />
+          <Property Name="outsourced_ind" Type="bit" Nullable="false" />
+          <Property Name="incorp_country_id" Type="int" />
+          <Property Name="website" Type="nvarchar" MaxLength="256" />
+          <Property Name="company_status_id" Type="int" />
+          <Property Name="effective_datetime" Type="datetime" />
+          <Property Name="IRS" Type="varchar" MaxLength="20" />
+          <Property Name="marketcap" Type="varchar" MaxLength="2000" />
+          <Property Name="other_info" Type="varchar" MaxLength="1000" />
+          <Property Name="EDINET" Type="varchar" MaxLength="1000" />
+          <Property Name="company_background" Type="varchar" MaxLength="1000" />
+          <Property Name="marketcap_currency_id" Type="int" />
+          <Property Name="marketcap_datetime" Type="datetime" />
+          <Property Name="revenue" Type="varchar" MaxLength="200" />
+          <Property Name="revenue_currency_id" Type="int" />
+          <Property Name="revenue_datetime" Type="datetime" />
+          <Property Name="founding_year" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="CompanyInsight_DevModelStoreContainer">
+          <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CompanyInsight_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_utc_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="modified_utc_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_by" Type="Int32" Nullable="false" />
+          <Property Name="delete_ind" Type="Boolean" Nullable="false" />
+          <Property Name="active_ind" Type="Boolean" Nullable="false" />
+          <Property Name="CIK" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIC" Type="Int32" />
+          <Property Name="outsourced_ind" Type="Boolean" Nullable="false" />
+          <Property Name="incorp_country_id" Type="Int32" />
+          <Property Name="website" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="company_status_id" Type="Int32" />
+          <Property Name="effective_datetime" Type="DateTime" Precision="3" />
+          <Property Name="IRS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="marketcap" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="other_info" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="EDINET" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="company_background" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="marketcap_currency_id" Type="Int32" />
+          <Property Name="marketcap_datetime" Type="DateTime" Precision="3" />
+          <Property Name="revenue" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="revenue_currency_id" Type="Int32" />
+          <Property Name="revenue_datetime" Type="DateTime" Precision="3" />
+          <Property Name="founding_year" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CompanyInsight_DevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="companies" EntityType="Self.company" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CompanyInsight_DevModelStoreContainer" CdmEntityContainer="CompanyInsight_DevEntities">
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="CompanyInsight_DevModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="created_utc_datetime" ColumnName="created_utc_datetime" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_utc_datetime" ColumnName="modified_utc_datetime" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="delete_ind" ColumnName="delete_ind" />
+                <ScalarProperty Name="active_ind" ColumnName="active_ind" />
+                <ScalarProperty Name="CIK" ColumnName="CIK" />
+                <ScalarProperty Name="SIC" ColumnName="SIC" />
+                <ScalarProperty Name="outsourced_ind" ColumnName="outsourced_ind" />
+                <ScalarProperty Name="incorp_country_id" ColumnName="incorp_country_id" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="company_status_id" ColumnName="company_status_id" />
+                <ScalarProperty Name="effective_datetime" ColumnName="effective_datetime" />
+                <ScalarProperty Name="IRS" ColumnName="IRS" />
+                <ScalarProperty Name="marketcap" ColumnName="marketcap" />
+                <ScalarProperty Name="other_info" ColumnName="other_info" />
+                <ScalarProperty Name="EDINET" ColumnName="EDINET" />
+                <ScalarProperty Name="company_background" ColumnName="company_background" />
+                <ScalarProperty Name="marketcap_currency_id" ColumnName="marketcap_currency_id" />
+                <ScalarProperty Name="marketcap_datetime" ColumnName="marketcap_datetime" />
+                <ScalarProperty Name="revenue" ColumnName="revenue" />
+                <ScalarProperty Name="revenue_currency_id" ColumnName="revenue_currency_id" />
+                <ScalarProperty Name="revenue_datetime" ColumnName="revenue_datetime" />
+                <ScalarProperty Name="founding_year" ColumnName="founding_year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
